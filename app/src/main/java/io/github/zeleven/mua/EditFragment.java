@@ -1,25 +1,34 @@
 package io.github.zeleven.mua;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hjq.permissions.OnPermissionCallback;
+import com.hjq.permissions.Permission;
+import com.hjq.permissions.XXPermissions;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
+import java.util.List;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -41,8 +50,10 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
     @BindString(R.string.dialog_item_text_local_image) String localImage;
     @BindString(R.string.dialog_item_text_internet_image) String internetImage;
 
-    private String rootPath;
+    private  String rootPath;
     private EditorAction editorAction;
+    // 滑动坐标
+    private float mPosX, mPosY, mCurPosX, mCurPosY;
 
     @Override
     public int getLayoutId() {
@@ -52,7 +63,9 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
     @Override
     public void initView() {
         super.initView();
+        // md文件保存路径
         rootPath = Environment.getExternalStorageDirectory().toString() + "/" + appName + "/";
+
         if (fileContent != null) {
             contentInput.setText(fileContent);
         }
@@ -63,6 +76,33 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
         editorAction = new EditorAction(context, contentInput);
         contentInput.requestFocus();
         setOnClickListener();
+        //左滑事件
+        contentInput.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        mPosX = event.getX();
+                        mPosY = event.getY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        mCurPosX = event.getX();
+                        mCurPosY = event.getY();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        // 左滑右滑监听， 上滑下滑同理
+                        if (mCurPosX - mPosX > 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
+                            Toast.makeText(context, "向右拉个锤子，没内容",Toast.LENGTH_SHORT);
+                        } else if (mCurPosX - mPosX < 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
+                            //跑去预览
+                            editorAction.checkDocs();
+                        }
+                        break;
+                }
+                return false;
+            }
+
+        });
     }
 
     @Override
@@ -90,6 +130,9 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
                 editorAction.redo();
                 break;
             case R.id.save:
+                // 看看文件保存在哪
+                Toast.makeText(context, "保存于"+rootPath, Toast.LENGTH_LONG).show();
+
                 if (!StorageHelper.isExternalStorageWritable()) {
                     Toast.makeText(context, R.string.toast_message_sdcard_unavailable,
                             Toast.LENGTH_SHORT).show();
@@ -219,51 +262,6 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
                 editorAction.insertLink();
                 break;
             case R.id.image:
-                // open dialog to insert image
-//                final CharSequence[] items = {localImage, internetImage};
-//                AlertDialog.Builder optionsDialog = new AlertDialog.Builder(context);
-//                optionsDialog.setItems(items, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        if (items[which].equals(items[0])) {
-//                            // select local image
-//                            Intent intent = new Intent();
-//                            intent.setType("image/*");
-//                            intent.setAction(Intent.ACTION_GET_CONTENT);
-//                            startActivityForResult(intent, 1);
-//                        } else if (items[which].equals(items[1])) {
-//                            dialog.cancel();
-//
-//                            // insert image from internet
-//                            AlertDialog.Builder inputDialog = new AlertDialog.Builder(context);
-//                            inputDialog.setTitle(R.string.dialog_title_insert_image);
-//                            LayoutInflater inflater = context.getLayoutInflater();
-//                            final View dialogView = inflater.inflate(R.layout.dialog_insert_image, null);
-//                            inputDialog.setView(dialogView);
-//                            inputDialog.setNegativeButton(R.string.cancel,
-//                                    new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    dialog.cancel();
-//                                }
-//                            });
-//
-//                            inputDialog.setPositiveButton(R.string.dialog_btn_insert,
-//                                    new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    EditText imageDisplayText = dialogView.findViewById(
-//                                            R.id.image_display_text);
-//                                    EditText imageUri = dialogView.findViewById(R.id.image_uri);
-//                                    editorAction.insertImage(imageDisplayText.getText().toString(),
-//                                            imageUri.getText().toString());
-//                                }
-//                            });
-//                            inputDialog.show();
-//                        }
-//                    }
-//                });
-//                optionsDialog.show();
                 // insert image
                 AlertDialog.Builder inputDialog = new AlertDialog.Builder(context);
                 inputDialog.setTitle(R.string.dialog_title_insert_image);

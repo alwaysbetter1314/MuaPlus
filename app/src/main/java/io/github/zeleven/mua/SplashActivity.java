@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//启动动画页
 public class SplashActivity extends AppCompatActivity {
     @BindView(R.id.splash_layout) RelativeLayout splashLayout;
 
@@ -21,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
 
         AlphaAnimation animation = new AlphaAnimation(0.0f , 1.0f );
         animation.setFillAfter(true);
-        animation.setDuration(1000);
+        animation.setDuration(500);
         splashLayout.startAnimation(animation);
         new Handler().postDelayed(new Runnable(){
             @Override
@@ -29,6 +30,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
-        }, 1500);
+        }, 500);
     }
 }

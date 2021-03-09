@@ -1,18 +1,24 @@
-<p align="center"><img alt="logo" src="./app/src/main/ic_launcher_round-web.png" width="256" height="256"></p>
+<p align="center"><img alt="logo" src="https://github.com/zeleven/mua/blob/master/app/src/main/ic_launcher_round-web.png" width="256" height="256"></p>
 
-# Mua
-An open source markdown editor for Android.
+# MuaPlus
+基于 开源的Android Markdown编辑器 mua（(https://github.com/zeleven/mua） 修改，编译版本为android5-10，
 
-## Features
-* Multi-language support
-* GFM support
-* Markdown cheat sheet support
-* Editor toolbar, that you can insert the markdown code, image, bold, italic and more.
-* Menu operation, that allows you save, rename, delete and more.
-* Search for files
-* Under MIT license
+## changelog
 
-## Dependencies
+### 20210309
+1. 编译版本到androidQ
+2. 引入权限， 修复androidQ无法向外置储存写入文件的问题
+
+## 特色
+* 支持多语言
+* 支持GFM
+* Markdown 语法说明
+* 工具栏，用于插入Markdown代码、图片、加粗、斜体等等
+* 菜单操作，用于保存、重命名、删除等
+* 文件搜索
+* MIT协议
+
+## 依赖
 ### Java
 * [Butter Knife](https://github.com/JakeWharton/butterknife)
 * [EventBus](https://github.com/greenrobot/EventBus)
@@ -22,25 +28,25 @@ An open source markdown editor for Android.
 ### JavaScript
 * [marked](https://github.com/chjj/marked)
 
-## Screenshots
+## 截图
 <p float="left">
-  <img src="./screenshots/Screenshot_2018-02-04-20-59-05.png" width="240">
-  <img src="./screenshots/Screenshot_2018-02-04-20-59-15.png" width="240">
-  <img src="./screenshots/Screenshot_2018-02-04-20-59-25.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-20-59-05.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-20-59-15.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-20-59-25.png" width="240">
 </p>
 <p float="left">
-  <img src="./screenshots/Screenshot_2018-02-04-21-00-14.png" width="240">
-  <img src="./screenshots/Screenshot_2018-02-04-21-00-17.png" width="240">
-  <img src="./screenshots/Screenshot_2018-02-04-21-00-21.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-00-14.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-00-17.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-00-21.png" width="240">
 </p>
 <p float="left">
-  <img src="./screenshots/Screenshot_2018-02-04-21-00-32.png" width="240">
-  <img src="./screenshots/Screenshot_2018-02-04-21-07-44.png" width="240">
-  <img src="./screenshots/Screenshot_2018-02-04-21-08-42.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-00-32.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-07-44.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-08-42.png" width="240">
 </p>
 <p float="left">
-  <img src="./screenshots/Screenshot_2018-02-04-21-09-14.png" width="240">
+  <img src="https://github.com/zeleven/mua/blob/master/screenshots/Screenshot_2018-02-04-21-09-14.png" width="240">
 </p>
 
-## License
-Under MIT license, check the [license file](https://github.com/zeleven/mua/blob/master/LICENSE) for more detail.
+## 开源协议
+MIT 协议，点击查看[协议文件](https://github.com/zeleven/mua/blob/master/LICENSE)了解详情

@@ -14,7 +14,9 @@
         android:icon="@drawable/ic_preview"
         app:showAsAction="always"/>
     <item android:id="@+id/save"
-        android:title="@string/menu_item_save"/>
+        android:title="@string/menu_item_save"
+        android:icon="@drawable/ic_save"
+        app:showAsAction="always" />
     <item android:id="@+id/rename"
         android:title="@string/menu_item_rename"
         android:enabled="false"/>
