@@ -1,4 +1,4 @@
-package io.github.zeleven.mua;
+package io.github.zeleven.muaplus;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package io.github.zeleven.mua;
+package io.github.zeleven.muaplus;
 
 import butterknife.BindString;
 

@@ -1,14 +1,22 @@
-<p align="center"><img alt="logo" src="https://github.com/zeleven/mua/blob/master/app/src/main/ic_launcher_round-web.png" width="256" height="256"></p>
-
 # MuaPlus
-基于 开源的Android Markdown编辑器 mua（(https://github.com/zeleven/mua） 修改，编译版本为android5-10，
-
+拿来自学安卓玩的，基于开源的Android Markdown编辑器 mua（(https://github.com/zeleven/mua） 修改，api编译版本为android5-10，包名也加了个plus后缀。
+之前一直在用markdownX， 可惜那玩意儿6年不更新了，dropbox同步功能挂了，在android 10上也表现不太好的样子。主要是启动速度快。。
 ## changelog
-
+### 0310
+1. 编辑界面可以左右滑切换预览和编辑了，其实就是把viewPager的滑动属性开启了。
 ### 20210309
-1. 编译版本到androidQ
-2. 引入权限， 修复androidQ无法向外置储存写入文件的问题
+1. 编译版本提升androidQ
+2. 引入权限库xxpermissions， 修复androidQ无法向外置储存写入文件的问题
 
+## TODO
+- 把actionbar移到顶部去
+- 文件列表左侧加个图标，并显示文件大小
+- 加入文件夹创建功能
+- 加入同步功能， 把markdown文件加密同步到云端（如腾讯云储存，onedrive神马的）
+
+
+---
+> 以下为原有内容，我就补充说明下
 ## 特色
 * 支持多语言
 * 支持GFM
@@ -20,13 +28,13 @@
 
 ## 依赖
 ### Java
-* [Butter Knife](https://github.com/JakeWharton/butterknife)
-* [EventBus](https://github.com/greenrobot/EventBus)
-* [BottomSheet](https://github.com/Flipboard/bottomsheet)
-* [Android Support library - preference v7 bugfix](https://github.com/Gericop/Android-Support-Preference-V7-Fix)
+* [Butter Knife](https://github.com/JakeWharton/butterknife)  // 官方的viewbinding如何。
+* [EventBus](https://github.com/greenrobot/EventBus)  //布吉岛
+* [BottomSheet](https://github.com/Flipboard/bottomsheet) // 揍啥滴
+* [Android Support library - preference v7 bugfix](https://github.com/Gericop/Android-Support-Preference-V7-Fix) // 目前有官方在推androidx替代他
 
 ### JavaScript
-* [marked](https://github.com/chjj/marked)
+* [marked](https://github.com/chjj/marked) 用于markdown渲染
 
 ## 截图
 <p float="left">

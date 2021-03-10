@@ -1,4 +1,4 @@
-package io.github.zeleven.mua;
+package io.github.zeleven.muaplus;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("io.github.zeleven.mua", appContext.getPackageName());
+        assertEquals("io.github.zeleven.io.github.zeleven.muaplus", appContext.getPackageName());
     }
 }

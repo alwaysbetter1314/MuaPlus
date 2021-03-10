@@ -1,4 +1,4 @@
-package io.github.zeleven.mua;
+package io.github.zeleven.muaplus;
 /*
 1. viewpager管理
 2. 预览和编辑切换
@@ -58,7 +58,7 @@ public class EditorFragment extends BaseEditorFragment {
 //                            Toast.makeText(context, "向右拉个锤子，没内容",Toast.LENGTH_SHORT);
 //                        } else if (mCurPosX - mPosX < 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
 //                            // switch to preview page ,  目前toggle炸了,不管输入法状态了Attempt to invoke virtual method \
-//                            // 'void io.github.zeleven.mua.EditorAction.toggleKeyboard(int)' on a null object reference
+//                            // 'void io.github.zeleven.io.github.zeleven.muaplus.EditorAction.toggleKeyboard(int)' on a null object reference
 //                            //editorAction.toggleKeyboard(0);
 ////                            editorViewPager.setCurrentItem(1, true);
 //                        }
