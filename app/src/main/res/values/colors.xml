@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#20dfdf</color>
-    <color name="colorPrimaryDark">#02e8e8</color>
-    <color name="colorAccent">#1abc9c</color>
+<!--    状态栏暗一点-->
+    <color name="colorPrimaryDark">#006156</color>
+<!--    标题栏-->
+    <color name="colorPrimary">#00796b</color>
+<!--控件被选中色-->
+    <color name="colorAccent">#00C7B0</color>
 
     <color name="colorToolbarFont">#f0f0f0</color>
 
