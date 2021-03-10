@@ -1,5 +1,8 @@
 package io.github.zeleven.mua;
-
+/*
+1. viewpager管理
+2. 预览和编辑切换
+ */
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -31,7 +34,40 @@ public class EditorFragment extends BaseEditorFragment {
         setHasOptionsMenu(true);
         setViewPager();
         setViewPagerListener();
+        // 左滑事件 好像viewpager自带，直接不需要了
+//        setOnTouchListener();
     }
+
+//    private void setOnTouchListener() {
+//        // 滑动event监听
+//        editorViewPager.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        mPosX = event.getX();
+//                        mPosY = event.getY();
+//                        break;
+//                    case MotionEvent.ACTION_MOVE:
+//                        mCurPosX = event.getX();
+//                        mCurPosY = event.getY();
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        // 左滑右滑监听， 上滑下滑同理
+//                        if (mCurPosX - mPosX > 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
+//                            Toast.makeText(context, "向右拉个锤子，没内容",Toast.LENGTH_SHORT);
+//                        } else if (mCurPosX - mPosX < 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
+//                            // switch to preview page ,  目前toggle炸了,不管输入法状态了Attempt to invoke virtual method \
+//                            // 'void io.github.zeleven.mua.EditorAction.toggleKeyboard(int)' on a null object reference
+//                            //editorAction.toggleKeyboard(0);
+////                            editorViewPager.setCurrentItem(1, true);
+//                        }
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
+//    }
 
     public void getArgs() {
         Bundle args = getArguments();

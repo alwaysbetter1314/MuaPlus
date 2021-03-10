@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -52,8 +53,6 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
 
     private  String rootPath;
     private EditorAction editorAction;
-    // 滑动坐标
-    private float mPosX, mPosY, mCurPosX, mCurPosY;
 
     @Override
     public int getLayoutId() {
@@ -76,34 +75,9 @@ public class EditFragment extends BaseEditorFragment implements View.OnClickList
         editorAction = new EditorAction(context, contentInput);
         contentInput.requestFocus();
         setOnClickListener();
-        //左滑事件
-        contentInput.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        mPosX = event.getX();
-                        mPosY = event.getY();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        mCurPosX = event.getX();
-                        mCurPosY = event.getY();
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        // 左滑右滑监听， 上滑下滑同理
-                        if (mCurPosX - mPosX > 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
-                            Toast.makeText(context, "向右拉个锤子，没内容",Toast.LENGTH_SHORT);
-                        } else if (mCurPosX - mPosX < 0 && (Math.abs(mCurPosX - mPosX) > 150)) {
-                            //跑去预览
-                            editorAction.checkDocs();
-                        }
-                        break;
-                }
-                return false;
-            }
-
-        });
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

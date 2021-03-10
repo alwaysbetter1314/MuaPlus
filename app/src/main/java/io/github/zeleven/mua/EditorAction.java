@@ -319,7 +319,7 @@ public class EditorAction {
     }
 
     /**
-     * Toggle keyboard according flag. If flag equals 0, hide or close keyboard. Otherwise, open.
+     * 切换 输入法键盘显示状态： 为0隐藏，其余打开。
      * @param flag A flag which indicate it should open keyboard or not.
      */
     public void toggleKeyboard(int flag) {
