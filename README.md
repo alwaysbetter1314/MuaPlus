@@ -4,6 +4,7 @@
 ## changelog
 ### 0310
 1. 编辑界面可以左右滑切换预览和编辑了，其实就是把viewPager的滑动属性开启了。
+2. 晕了晕了，git push。
 ### 20210309
 1. 编译版本提升androidQ
 2. 引入权限库xxpermissions， 修复androidQ无法向外置储存写入文件的问题
