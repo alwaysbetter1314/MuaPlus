@@ -20,10 +20,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -40,6 +44,12 @@ public class FileListFragment extends BaseFragment {
     @BindView(R.id.create_markdown_btn) FloatingActionButton createMarkdownBtn;
     @BindView(R.id.navigation_view) NavigationView navigationView;
     @BindView(R.id.empty_list) RelativeLayout emptyList;
+
+//    @BindView(R.id.file_image) ImageView imageView;
+//    @BindView(R.id.upload_server)
+//    EditText textUploadServer;
+//    @BindView(R.id.upload_interface)
+//    EditText textUploadInterface;
 
     @BindString(R.string.app_name) String appName;
     private String root = Environment.getExternalStorageDirectory().toString();
@@ -69,7 +79,48 @@ public class FileListFragment extends BaseFragment {
         setNavigationViewItemListener(); // set navigation view item listener
         setRecyclerView(); // set recyclerview
         setSwipeRefreshLayout(); // set swipe refresh layout
+//        setImageViewClick(); // 点击文件图标弹出对话框上传
     }
+
+//    private void setImageViewClick() {
+//        // file图标点击事件
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                uploadDialog();
+//            }
+//        });
+//    }
+//
+//    private void uploadDialog() {
+//        //    点击图标上传文件
+//        AlertDialog.Builder uploadDialog = new AlertDialog.Builder(context);
+//        uploadDialog.setTitle("上传markdown文件");
+//
+//        LayoutInflater inflater = getLayoutInflater();
+//        final View view = inflater.inflate(R.layout.dialog_upload_file, null);
+//        uploadDialog.setView(view);
+//
+//        uploadDialog.setNegativeButton("取消",
+//                new DialogInterface.OnClickListener(){
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                });
+//
+//        uploadDialog.setPositiveButton("上传",
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        String url = textUploadServer.getText().toString() + textUploadInterface.getText().toString();
+//                        Toast toast = Toast.makeText(context, url,Toast.LENGTH_SHORT);
+//                        toast.setGravity(Gravity.CENTER, 0, 0);
+//                        toast.show();
+//                    }
+//                });
+//        uploadDialog.show();
+//    }
 
     public void initVar() {
         rootPath = root + "/" + appName + "/";

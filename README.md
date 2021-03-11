@@ -14,6 +14,7 @@
 2. 引入权限库xxpermissions， 修复androidQ无法向外置储存写入文件的问题
 
 ## TODO
+- 加入单文件点击上传功能
 - 加入文件夹创建功能
 - 加入同步功能， 把markdown文件加密同步到云端（如腾讯云储存，onedrive神马的, 自己vps的）
 
