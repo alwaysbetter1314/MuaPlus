@@ -3,12 +3,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@android:color/white"
-    android:layout_alignParentBottom="true">
+    android:background="@color/colorPrimary"
+    android:layout_alignParentTop="true">
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:background="#ddd"
         android:layout_above="@+id/toolbar_buttons"/>
 
     <HorizontalScrollView

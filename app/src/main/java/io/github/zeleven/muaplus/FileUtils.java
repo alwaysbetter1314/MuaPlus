@@ -1,5 +1,7 @@
 package io.github.zeleven.muaplus;
-
+/*
+* 基本的文件操作，增删重命名
+ */
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -12,21 +14,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 public class FileUtils {
     private static String className = FileUtils.class.getName();
 
     /**
-     * Listing the files from specified file path.
+     * 列出特定目录下的文件
      * @param filesPath file path used to list files.
      * @return list which contain files.
      */
@@ -64,7 +62,7 @@ public class FileUtils {
     }
 
     /**
-     * Search files from specified file path
+     * 搜索特定目录下的文件
      * @param filesPath filepath be searched
      * @param query search key word
      * @return search result
@@ -103,7 +101,7 @@ public class FileUtils {
     }
 
     /**
-     * Save content to specified file.
+     * 保存内容到特定文件
      * @param filePath file path indicate the file which be written content.
      * @param content
      * @return if save success, return true, otherwise return false.
@@ -126,7 +124,7 @@ public class FileUtils {
     }
 
     /**
-     * Rename file
+     * 重命名文件
      * @param oldFile the file which be renamed.
      * @param newFile target file.
      */
@@ -144,7 +142,7 @@ public class FileUtils {
     }
 
     /**
-     * Writing content to file.
+     * 文件写入类
      * @param file
      * @param content
      */
@@ -161,7 +159,7 @@ public class FileUtils {
     }
 
     /**
-     * Get filename which has no extension behind.
+     * Get 文件名--去除扩展名
      * @param fileName
      * @return
      */
@@ -182,7 +180,7 @@ public class FileUtils {
     }
 
     /**
-     * Read content from specified path.
+     * 从特定路径读取文件内容
      * @param pathname pathname of file
      * @param lineBreak indicate whether should include line break in content.
      * @return
@@ -223,7 +221,7 @@ public class FileUtils {
     }
 
     /**
-     * delete file
+     * 删除文件
      * @param file
      * @return
      */
@@ -237,15 +235,25 @@ public class FileUtils {
         }
         return result;
     }
-
-    public static Date getCreationDate(String filePath) {
-        Path path = Paths.get(filePath);
-        BasicFileAttributes attr = null;
-        try {
-            attr = Files.readAttributes(path, BasicFileAttributes.class);
-        } catch (IOException e) {
-            e.printStackTrace();
+//    获取创建日期？，然鹅咩有调用
+//    public static Date getCreationDate(String filePath) {
+//        Path path = Paths.get(filePath);
+//        BasicFileAttributes attr = null;
+//        try {
+//            attr = Files.readAttributes(path, BasicFileAttributes.class);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return new Date(attr.creationTime().toMillis());
+//    }
+    /*
+    获取文件大小，以B/KB返回
+     */
+    public static String getFileSize(String path){
+        File file = new File(path);
+        if ( file.exists()&& file.isFile()){
+            return Long.toString( file.length() )  + 'B';
         }
-        return new Date(attr.creationTime().toMillis());
+        return "0B";
     }
 }

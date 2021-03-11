@@ -38,13 +38,15 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.ViewHolder> 
         String fileName = entity.getName();
         holder.fileName.setText(fileName);
 
-        String content = FileUtils.readContentFromFile(new File(entity.getAbsolutePath()), false);
-        if (content.length() == 0) {
-            holder.fileContent.setVisibility(View.GONE);
-        } else {
-            content = content.length() > 500 ? content.substring(0, 500) : content;
-            holder.fileContent.setText(content);
-        }
+//        String content = FileUtils.readContentFromFile(new File(entity.getAbsolutePath()), false);
+//        if (content.length() == 0) {
+//            holder.fileContent.setVisibility(View.GONE);
+//        } else {
+//            content = content.length() > 500 ? content.substring(0, 500) : content;
+//            holder.fileContent.setText(content);
+//        }
+        // 设置文件大小： 当前文件实体=>绝对路径=>获取文件大小
+        holder.fileSize.setText(FileUtils.getFileSize( entity.getAbsolutePath() ));
 
         holder.fileDate.setText(DateUtils.getRelativeTimeSpanString(entity.getLastModified(),
                 System.currentTimeMillis(), DateUtils.FORMAT_ABBREV_ALL));
@@ -76,13 +78,16 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView fileName, fileContent, fileDate;
+        TextView fileName, fileDate, fileSize;
 
         public ViewHolder(View itemView) {
             super(itemView);
             fileName = itemView.findViewById(R.id.file_name);
-            fileContent = itemView.findViewById(R.id.file_content);
+            // file摘要已经去除
+//            fileContent = itemView.findViewById(R.id.file_content);
             fileDate = itemView.findViewById(R.id.file_date);
+            //增加： 文件大小
+            fileSize = itemView.findViewById(R.id.file_size);
         }
     }
 }

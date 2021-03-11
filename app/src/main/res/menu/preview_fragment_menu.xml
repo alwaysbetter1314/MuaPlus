@@ -4,5 +4,6 @@
     <item android:id="@+id/edit"
         android:title="@string/menu_item_edit"
         android:icon="@drawable/ic_mode_edit"
+        style="@style/titleBarItem"
         app:showAsAction="always"/>
 </menu>

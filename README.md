@@ -2,17 +2,20 @@
 拿来自学安卓玩的，基于开源的Android Markdown编辑器 mua（(https://github.com/zeleven/mua） 修改，api编译版本为android5-10，包名也加了个plus后缀。
 之前一直在用markdownX， 可惜那玩意儿6年不更新了，dropbox同步功能挂了，在android 10上也表现不太好的样子。主要是启动速度快。。
 ## changelog
+### 0311
+1. 文件列表左侧加个图标，并显示文件大小
+
 ### 0310
 1. 编辑界面可以左右滑切换预览和编辑了，其实就是把viewPager的滑动属性开启了。
+2. 把actionbar移到顶部去
+3. 后面干啥忘了，golang搭好个上传接口，到时候同步到服务器。 通过比较md5么
 ### 20210309
 1. 编译版本提升androidQ
 2. 引入权限库xxpermissions， 修复androidQ无法向外置储存写入文件的问题
 
 ## TODO
-- 把actionbar移到顶部去
-- 文件列表左侧加个图标，并显示文件大小
 - 加入文件夹创建功能
-- 加入同步功能， 把markdown文件加密同步到云端（如腾讯云储存，onedrive神马的）
+- 加入同步功能， 把markdown文件加密同步到云端（如腾讯云储存，onedrive神马的, 自己vps的）
 
 
 ---

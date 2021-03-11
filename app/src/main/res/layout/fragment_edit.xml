@@ -3,6 +3,9 @@
     android:id="@+id/edit_area"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <include layout="@layout/editor_actionbar" />
+
     <EditText
         android:id="@+id/content_input"
         android:textColor="#333"
@@ -13,7 +16,8 @@
         android:padding="16dp"
         android:scrollHorizontally="false"
         android:scrollbars="none"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="48dp"
+        android:hint="请输入markdown文本"
         android:background="#00000000"/>
-    <include layout="@layout/editor_actionbar"/>
+
 </RelativeLayout>
