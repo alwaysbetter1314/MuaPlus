@@ -7,7 +7,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName '0.1.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -41,5 +41,7 @@ dependencies {
     compile 'com.flipboard:bottomsheet-core:1.5.3'
     compile 'com.flipboard:bottomsheet-commons:1.5.3'
     compile 'com.takisoft.fix:preference-v7:26.1.0.3'
+
     implementation 'com.hjq:xxpermissions:10.2' //权限申请。
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1' // 网络请求
 }

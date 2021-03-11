@@ -118,17 +118,17 @@ public class FileListFragment extends BaseFragment {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.sync:
-//                        selectedFragment = new SyncFragment();
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setMessage(R.string.dialog_message_alert_user);
-                        builder.setPositiveButton(R.string.ok,
-                                new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-                        builder.show();
+                        selectedFragment = new SyncFragment();
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                        builder.setMessage(R.string.dialog_message_alert_user);
+//                        builder.setPositiveButton(R.string.ok,
+//                                new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.cancel();
+//                            }
+//                        });
+//                        builder.show();
                         break;
                     case R.id.theme:
                         break;
